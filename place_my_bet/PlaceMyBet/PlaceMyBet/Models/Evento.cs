@@ -16,6 +16,8 @@ namespace PlaceMyBet.Models
         public int EventoId { get; set; }
         public string EquipoL { get; set; }
         public string EquipoV { get; set; }
+
+        public List<Mercado> Mercado { get; set; }
     }
 
     public class EventoDTO
@@ -27,5 +29,6 @@ namespace PlaceMyBet.Models
         }
         public string EquipoL { get; set; }
         public string EquipoV { get; set; }
+        public List<Mercado> Mercado { get; set; }
     }
 }

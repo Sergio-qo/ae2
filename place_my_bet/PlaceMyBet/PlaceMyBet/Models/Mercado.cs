@@ -9,7 +9,7 @@ namespace PlaceMyBet.Models
     {
         public Mercado(int id, double dineroApostadoUnder, double dineroApostadoOver, double cuotaUnder, double cuotaOver, string tipo, int idPartido)
         {
-            Id = id;
+            MercadoId = id;
             DineroApostadoOver = dineroApostadoOver;
             DineroApostadoUnder = dineroApostadoUnder;
             CuotaOver = cuotaOver;
@@ -18,13 +18,16 @@ namespace PlaceMyBet.Models
             IdPartdio = idPartido;
         }
 
-        public int Id { get; set; }
+        public int MercadoId { get; set; }
         public double DineroApostadoUnder { get; set; }
         public double DineroApostadoOver { get; set; }
         public double CuotaUnder { get; set; }
         public double CuotaOver { get; set;}
         public string Tipo { get; set;}
-        public int IdPartdio { get; set;}
+        public int IdPartdio { get; set;}  
+        public List<Apuesta> Apuesta { get; set; }
+        public int EventoId { get; set; }
+        public Evento Evento { get; set; }
     }
 
     public class MercadoDTO
@@ -41,6 +44,9 @@ namespace PlaceMyBet.Models
         public double CuotaOver { get; set; }
         public string Tipo { get; set; }
         public int IdPartdio { get; set; }
+        public List<Apuesta> Apuesta { get; set; }
+        public int EventoId { get; set; }
+        public Evento Evento { get; set; }
     }
 
     public class MercadoDTOAP
@@ -59,5 +65,8 @@ namespace PlaceMyBet.Models
         public string Tipo_A { get; set; }
         public double Cuota { get; set; }
         public double Din_Ap { get; set; }
+        public List<Apuesta> Apuesta { get; set; }
+        public int EventoId { get; set; }
+        public Evento Evento { get; set; }
     }
 }
