@@ -7,7 +7,7 @@ namespace PlaceMyBet.Models
 {
     public class Usuario
     {
-        public List<Apuesta> Apuesta { get; set; }
+        public List<Apuesta> Apuestas { get; set; }
         public Cuenta Cuenta { get; set; }
         public int UsuarioId { get; set; }
     }

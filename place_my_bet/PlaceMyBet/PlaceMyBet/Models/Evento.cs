@@ -17,7 +17,7 @@ namespace PlaceMyBet.Models
         public string EquipoL { get; set; }
         public string EquipoV { get; set; }
 
-        public List<Mercado> Mercado { get; set; }
+        public List<Mercado> Mercados { get; set; }
     }
 
     public class EventoDTO
@@ -29,6 +29,6 @@ namespace PlaceMyBet.Models
         }
         public string EquipoL { get; set; }
         public string EquipoV { get; set; }
-        public List<Mercado> Mercado { get; set; }
+        public List<Mercado> Mercados { get; set; }
     }
 }

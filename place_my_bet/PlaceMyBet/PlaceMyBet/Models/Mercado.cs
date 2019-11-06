@@ -25,7 +25,7 @@ namespace PlaceMyBet.Models
         public double CuotaOver { get; set;}
         public string Tipo { get; set;}
         public int IdPartdio { get; set;}  
-        public List<Apuesta> Apuesta { get; set; }
+        public List<Apuesta> Apuestas { get; set; }
         public int EventoId { get; set; }
         public Evento Evento { get; set; }
     }
@@ -44,7 +44,7 @@ namespace PlaceMyBet.Models
         public double CuotaOver { get; set; }
         public string Tipo { get; set; }
         public int IdPartdio { get; set; }
-        public List<Apuesta> Apuesta { get; set; }
+        public List<Apuesta> Apuestas { get; set; }
         public int EventoId { get; set; }
         public Evento Evento { get; set; }
     }
@@ -65,7 +65,7 @@ namespace PlaceMyBet.Models
         public string Tipo_A { get; set; }
         public double Cuota { get; set; }
         public double Din_Ap { get; set; }
-        public List<Apuesta> Apuesta { get; set; }
+        public List<Apuesta> Apuestas { get; set; }
         public int EventoId { get; set; }
         public Evento Evento { get; set; }
     }
