@@ -7,11 +7,11 @@ namespace PlaceMyBet.Models
 {
     public class Evento
     {
-        public Evento(int id, string equipov, string equipol)
+        public Evento(/*int id, string equipov, string equipol*/)
         {
-            EventoId = id;
+            /*EventoId = id;
             EquipoL = equipol;
-            EquipoV = equipov;
+            EquipoV = equipov;*/
         }
         public int EventoId { get; set; }
         public string EquipoL { get; set; }
@@ -22,10 +22,10 @@ namespace PlaceMyBet.Models
 
     public class EventoDTO
     {
-        public EventoDTO(string equipov, string equipol)
+        public EventoDTO(/*string equipov, string equipol*/)
         {
-            EquipoL = equipol;
-            EquipoV = equipov;
+            /*EquipoL = equipol;
+            EquipoV = equipov;*/
         }
         public string EquipoL { get; set; }
         public string EquipoV { get; set; }

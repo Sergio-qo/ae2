@@ -7,15 +7,15 @@ namespace PlaceMyBet.Models
 {
     public class Mercado
     {
-        public Mercado(int id, double dineroApostadoUnder, double dineroApostadoOver, double cuotaUnder, double cuotaOver, string tipo, int idPartido)
+        public Mercado(/*int id, double dineroApostadoUnder, double dineroApostadoOver, double cuotaUnder, double cuotaOver, string tipo, int idPartido*/)
         {
-            MercadoId = id;
+            /*MercadoId = id;
             DineroApostadoOver = dineroApostadoOver;
             DineroApostadoUnder = dineroApostadoUnder;
             CuotaOver = cuotaOver;
             CuotaUnder = cuotaUnder;
             Tipo = tipo;
-            IdPartdio = idPartido;
+            IdPartdio = idPartido;*/
         }
 
         public int MercadoId { get; set; }
@@ -32,12 +32,12 @@ namespace PlaceMyBet.Models
 
     public class MercadoDTO
     {
-        public MercadoDTO(double cuotaUnder, double cuotaOver, string tipo, int idPartido)
+        public MercadoDTO(/*double cuotaUnder, double cuotaOver, string tipo, int idPartido*/)
         {
-            CuotaOver = cuotaOver;
+            /*CuotaOver = cuotaOver;
             CuotaUnder = cuotaUnder;
             Tipo = tipo;
-            IdPartdio = idPartido;
+            IdPartdio = idPartido;*/
         }
 
         public double CuotaUnder { get; set; }
@@ -51,13 +51,13 @@ namespace PlaceMyBet.Models
 
     public class MercadoDTOAP
     {
-        public MercadoDTOAP(string email, string tipo_m, string tipo_a, double cuota, double din_ap)
+        public MercadoDTOAP(/*string email, string tipo_m, string tipo_a, double cuota, double din_ap*/)
         {
-            Email = email;
+            /*Email = email;
             Tipo_M = tipo_m;
             Tipo_A = tipo_a;
             Cuota = cuota;
-            Din_Ap = din_ap;
+            Din_Ap = din_ap;*/
         }
 
         public string Email { get; set; }
