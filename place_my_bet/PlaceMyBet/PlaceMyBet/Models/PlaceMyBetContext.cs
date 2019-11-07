@@ -34,7 +34,7 @@ namespace PlaceMyBet.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<Usuario>().HasData(new Usuario());
         }
     }
 }
