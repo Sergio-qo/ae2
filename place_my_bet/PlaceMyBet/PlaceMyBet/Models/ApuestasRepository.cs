@@ -15,28 +15,12 @@ namespace PlaceMyBet.Models
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }*/
-        internal void Retrieve()
+        internal List<Apuesta> Retrieve()
         {
-            /*MySqlConnection con = Connect();
-            MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from apuesta";
-            */
-            try
+            using (var context = new PlaceMyBetContext())
             {
-                /*con.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-                List<Apuesta> apuestas = new List<Apuesta>();
-                while (reader.Read())
-                {
-                    apuestas.Add(new Apuesta(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5)));
-                }
-                con.Close();*/
-                //return null;
-            }
-            catch(/*MySqlException ex*/InvalidCastException e)
-            {
-                Console.WriteLine("Se ha producido un error: " + e);
-                //return null;
+                var apuestas = context.Apuestas.ToList();
+                return apuestas;
             }
         }
 
