@@ -38,7 +38,7 @@ namespace PlaceMyBet.Models
             }
         }
 
-        internal List<MercadoDTO> RetrieveDTO()
+        internal void RetrieveDTO()
         {
             /*MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -53,12 +53,12 @@ namespace PlaceMyBet.Models
                     mercados.Add(new MercadoDTO(reader.GetDouble(3), reader.GetDouble(4), reader.GetString(5), reader.GetInt32(6)));
                 }
                 con.Close();*/
-                return null;
+                //return null;
             }
             catch (/*MySqlException ex*/ InvalidCastException e)
             {
                 Console.WriteLine("Se ha producido un error: " + e);
-                return null;
+                //return null;
             }
         }
 
@@ -85,7 +85,7 @@ namespace PlaceMyBet.Models
             }
         }
 
-        internal List<MercadoDTOAP> RetrieveAP(int id_mercado)
+        internal void RetrieveAP(int id_mercado)
         {
             /*MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -100,12 +100,12 @@ namespace PlaceMyBet.Models
                 {
                     mercados.Add(new MercadoDTOAP(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetDouble(4), reader.GetDouble(3)));
                 }*/
-                return null;
+                //return null;
             }
             catch (/*MySqlException ex*/ InvalidCastException e)
             {
                 Console.WriteLine(e);
-                return null;
+                //return null;
             }
         }
     }

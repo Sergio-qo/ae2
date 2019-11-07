@@ -34,7 +34,11 @@ namespace PlaceMyBet.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Usuario>().HasData(new Usuario());
+            modelBuilder.Entity<Usuario>().HasData(new Usuario("fff@gmail.com", 19, "s", "qo"));
+            modelBuilder.Entity<Cuenta>().HasData(new Cuenta(1, "fff@gmail.com", "BANKIA", "555"));
+            modelBuilder.Entity<Evento>().HasData(new Evento(1, "Valencia", "Barcelona"));
+            modelBuilder.Entity<Mercado>().HasData(new Mercado(1, 1, 1, 2, 2, "UNDER 2.5",1));
+            
         }
     }
 }

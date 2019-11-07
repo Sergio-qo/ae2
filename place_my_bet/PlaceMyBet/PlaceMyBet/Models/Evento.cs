@@ -7,11 +7,16 @@ namespace PlaceMyBet.Models
 {
     public class Evento
     {
-        public Evento(/*int id, string equipov, string equipol*/)
+        public Evento()
         {
-            /*EventoId = id;
+
+        }
+        public Evento(int id, string equipov, string equipol/*, List<Mercado> mercados*/)
+        {
+            EventoId = id;
             EquipoL = equipol;
-            EquipoV = equipov;*/
+            EquipoV = equipov;
+            /*Mercados = mercados;*/
         }
         public int EventoId { get; set; }
         public string EquipoL { get; set; }
@@ -20,15 +25,15 @@ namespace PlaceMyBet.Models
         public List<Mercado> Mercados { get; set; }
     }
 
-    public class EventoDTO
+    /*public class EventoDTO
     {
-        public EventoDTO(/*string equipov, string equipol*/)
+        public EventoDTO(string equipov, string equipol)
         {
-            /*EquipoL = equipol;
-            EquipoV = equipov;*/
+            EquipoL = equipol;
+            EquipoV = equipov;
         }
         public string EquipoL { get; set; }
         public string EquipoV { get; set; }
         public List<Mercado> Mercados { get; set; }
-    }
+    }*/
 }

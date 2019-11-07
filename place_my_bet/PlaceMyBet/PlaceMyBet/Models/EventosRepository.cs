@@ -38,7 +38,7 @@ namespace PlaceMyBet.Models
             }
         }
 
-        internal List<EventoDTO> RetrieveDTO()
+        internal void RetrieveDTO()
         {
             /*MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -53,12 +53,12 @@ namespace PlaceMyBet.Models
                     eventos.Add(new EventoDTO(reader.GetString(1), reader.GetString(2)));
                 }
                 con.Close();*/
-                return null;
+                //return null;
             }
             catch (/*MySqlException ex*/ InvalidCastException e)
             {
                 Console.WriteLine("Se ha producido un error: " + e);
-                return null;
+                //return null;
             }
         }
     }

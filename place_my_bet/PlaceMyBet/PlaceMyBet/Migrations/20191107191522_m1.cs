@@ -25,8 +25,10 @@ namespace PlaceMyBet.Migrations
                 name: "Usuarios",
                 columns: table => new
                 {
-                    UsuarioId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
+                    UsuarioId = table.Column<string>(nullable: false),
+                    Edad = table.Column<int>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true),
+                    Apellidos = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -44,7 +46,6 @@ namespace PlaceMyBet.Migrations
                     CuotaUnder = table.Column<double>(nullable: false),
                     CuotaOver = table.Column<double>(nullable: false),
                     Tipo = table.Column<string>(nullable: true),
-                    IdPartdio = table.Column<int>(nullable: false),
                     EventoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -64,7 +65,9 @@ namespace PlaceMyBet.Migrations
                 {
                     CuentaId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    UsuarioId = table.Column<int>(nullable: false)
+                    UsuarioId = table.Column<string>(nullable: true),
+                    NombreBanco = table.Column<string>(nullable: true),
+                    NumTarjeta = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -74,7 +77,7 @@ namespace PlaceMyBet.Migrations
                         column: x => x.UsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,10 +89,10 @@ namespace PlaceMyBet.Migrations
                     Tipo = table.Column<string>(nullable: true),
                     Cuota = table.Column<double>(nullable: false),
                     DineroApostado = table.Column<double>(nullable: false),
-                    IdMercado = table.Column<int>(nullable: false),
-                    EmailUsuario = table.Column<string>(nullable: true),
                     MercadoId = table.Column<int>(nullable: false),
-                    UsuarioId = table.Column<int>(nullable: false)
+                    IdUsuario = table.Column<string>(nullable: true),
+                    UsuarioId = table.Column<int>(nullable: false),
+                    UsuarioId1 = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -101,12 +104,32 @@ namespace PlaceMyBet.Migrations
                         principalColumn: "MercadoId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Apuestas_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_Apuestas_Usuarios_UsuarioId1",
+                        column: x => x.UsuarioId1,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Eventos",
+                columns: new[] { "EventoId", "EquipoL", "EquipoV" },
+                values: new object[] { 1, "Barcelona", "Valencia" });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "UsuarioId", "Apellidos", "Edad", "Nombre" },
+                values: new object[] { "fff@gmail.com", "qo", 19, "s" });
+
+            migrationBuilder.InsertData(
+                table: "Cuentas",
+                columns: new[] { "CuentaId", "NombreBanco", "NumTarjeta", "UsuarioId" },
+                values: new object[] { 1, "BANKIA", "555", "fff@gmail.com" });
+
+            migrationBuilder.InsertData(
+                table: "Mercados",
+                columns: new[] { "MercadoId", "CuotaOver", "CuotaUnder", "DineroApostadoOver", "DineroApostadoUnder", "EventoId", "Tipo" },
+                values: new object[] { 1, 2.0, 2.0, 1.0, 1.0, 1, "UNDER 2.5" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Apuestas_MercadoId",
@@ -114,9 +137,9 @@ namespace PlaceMyBet.Migrations
                 column: "MercadoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Apuestas_UsuarioId",
+                name: "IX_Apuestas_UsuarioId1",
                 table: "Apuestas",
-                column: "UsuarioId");
+                column: "UsuarioId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cuentas_UsuarioId",

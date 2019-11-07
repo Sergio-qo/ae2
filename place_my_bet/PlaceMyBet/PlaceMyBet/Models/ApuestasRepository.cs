@@ -15,7 +15,7 @@ namespace PlaceMyBet.Models
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }*/
-        internal List<Apuesta> Retrieve()
+        internal void Retrieve()
         {
             /*MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -31,16 +31,16 @@ namespace PlaceMyBet.Models
                     apuestas.Add(new Apuesta(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5)));
                 }
                 con.Close();*/
-                return null;
+                //return null;
             }
             catch(/*MySqlException ex*/InvalidCastException e)
             {
                 Console.WriteLine("Se ha producido un error: " + e);
-                return null;
+                //return null;
             }
         }
 
-        internal List<ApuestaDTO> RetrieveDTO()
+        internal void RetrieveDTO()
         {
             /*MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -55,12 +55,12 @@ namespace PlaceMyBet.Models
                     apuestas.Add(new ApuestaDTO(reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5)));
                 }
                 con.Close();*/
-                return null;
+                //return null;
             }
             catch (/*MySqlException ex*/ InvalidCastException e)
             {
                 Console.WriteLine("Se ha producido un error: " + e);
-                return null;
+                //return null;
             }
         }
 
@@ -164,7 +164,7 @@ namespace PlaceMyBet.Models
             //con.Close();
         }
 
-        internal List<ApuestaDTOEVME> RetrieveDTOEVME(string email)
+        internal void RetrieveDTOEVME(string email)
         {
             /*MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -180,12 +180,12 @@ namespace PlaceMyBet.Models
                     apuestas.Add(new ApuestaDTOEVME(reader.GetString(0), reader.GetInt32(4), reader.GetInt32(5), reader.GetString(1), reader.GetDouble(2), reader.GetDouble(3), reader.GetInt32(6), email));
                 }
                 con.Close();*/
-                return null;
+                //return null;
             }
             catch (/*MySqlException ex*/ InvalidCastException e)
             {
                 Console.WriteLine("Se ha producido un error: " + e);
-                return null;
+                //return null;
             }
         }
     }

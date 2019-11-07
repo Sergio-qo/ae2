@@ -25,9 +25,7 @@ namespace PlaceMyBet.Migrations
 
                     b.Property<double>("DineroApostado");
 
-                    b.Property<string>("EmailUsuario");
-
-                    b.Property<int>("IdMercado");
+                    b.Property<string>("IdUsuario");
 
                     b.Property<int>("MercadoId");
 
@@ -35,11 +33,13 @@ namespace PlaceMyBet.Migrations
 
                     b.Property<int>("UsuarioId");
 
+                    b.Property<string>("UsuarioId1");
+
                     b.HasKey("ApuestaId");
 
                     b.HasIndex("MercadoId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuarioId1");
 
                     b.ToTable("Apuestas");
                 });
@@ -49,7 +49,11 @@ namespace PlaceMyBet.Migrations
                     b.Property<int>("CuentaId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("UsuarioId");
+                    b.Property<string>("NombreBanco");
+
+                    b.Property<string>("NumTarjeta");
+
+                    b.Property<string>("UsuarioId");
 
                     b.HasKey("CuentaId");
 
@@ -57,6 +61,15 @@ namespace PlaceMyBet.Migrations
                         .IsUnique();
 
                     b.ToTable("Cuentas");
+
+                    b.HasData(
+                        new
+                        {
+                            CuentaId = 1,
+                            NombreBanco = "BANKIA",
+                            NumTarjeta = "555",
+                            UsuarioId = "fff@gmail.com"
+                        });
                 });
 
             modelBuilder.Entity("PlaceMyBet.Models.Evento", b =>
@@ -71,6 +84,14 @@ namespace PlaceMyBet.Migrations
                     b.HasKey("EventoId");
 
                     b.ToTable("Eventos");
+
+                    b.HasData(
+                        new
+                        {
+                            EventoId = 1,
+                            EquipoL = "Barcelona",
+                            EquipoV = "Valencia"
+                        });
                 });
 
             modelBuilder.Entity("PlaceMyBet.Models.Mercado", b =>
@@ -88,8 +109,6 @@ namespace PlaceMyBet.Migrations
 
                     b.Property<int>("EventoId");
 
-                    b.Property<int>("IdPartdio");
-
                     b.Property<string>("Tipo");
 
                     b.HasKey("MercadoId");
@@ -97,16 +116,43 @@ namespace PlaceMyBet.Migrations
                     b.HasIndex("EventoId");
 
                     b.ToTable("Mercados");
+
+                    b.HasData(
+                        new
+                        {
+                            MercadoId = 1,
+                            CuotaOver = 2.0,
+                            CuotaUnder = 2.0,
+                            DineroApostadoOver = 1.0,
+                            DineroApostadoUnder = 1.0,
+                            EventoId = 1,
+                            Tipo = "UNDER 2.5"
+                        });
                 });
 
             modelBuilder.Entity("PlaceMyBet.Models.Usuario", b =>
                 {
-                    b.Property<int>("UsuarioId")
+                    b.Property<string>("UsuarioId")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Apellidos");
+
+                    b.Property<int>("Edad");
+
+                    b.Property<string>("Nombre");
 
                     b.HasKey("UsuarioId");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            UsuarioId = "fff@gmail.com",
+                            Apellidos = "qo",
+                            Edad = 19,
+                            Nombre = "s"
+                        });
                 });
 
             modelBuilder.Entity("PlaceMyBet.Models.Apuesta", b =>
@@ -118,16 +164,14 @@ namespace PlaceMyBet.Migrations
 
                     b.HasOne("PlaceMyBet.Models.Usuario", "Usuario")
                         .WithMany("Apuestas")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UsuarioId1");
                 });
 
             modelBuilder.Entity("PlaceMyBet.Models.Cuenta", b =>
                 {
                     b.HasOne("PlaceMyBet.Models.Usuario", "Usuario")
                         .WithOne("Cuenta")
-                        .HasForeignKey("PlaceMyBet.Models.Cuenta", "UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PlaceMyBet.Models.Cuenta", "UsuarioId");
                 });
 
             modelBuilder.Entity("PlaceMyBet.Models.Mercado", b =>
