@@ -11,11 +11,16 @@ namespace PlaceMyBet.Controllers
     public class EventosController : ApiController
     {
         // GET: api/Eventos
-        public void Get()
+        public List<Evento> Get()
         {
             //var repo = new EventosRepository();
             //List<EventoDTO> eventos = repo.RetrieveDTO();
             //return eventos;
+            using (var context = new PlaceMyBetContext())
+            {
+                var eventos = context.Eventos.ToList();
+                return eventos;
+            }
         }
 
         // GET: api/Eventos/5
@@ -26,7 +31,13 @@ namespace PlaceMyBet.Controllers
 
         // POST: api/Eventos
         public void Post(Evento e)
-        { 
+        {
+            using (var context = new PlaceMyBetContext())
+            {
+                var eventos = context.Set<Evento>();
+                eventos.Add(new Evento(e.EventoId, e.EquipoV, e.EquipoL));
+                context.SaveChanges();
+            }
         }
 
         // PUT: api/Eventos/5
