@@ -146,6 +146,28 @@ namespace PlaceMyBet.Models
                 Console.WriteLine("Error " + e);
             }
             //con.Close();
+
+
+            using (var context = new PlaceMyBetContext())
+            {
+                var apuestas = context.Set<Apuesta>();
+                apuestas.Add(a);
+                context.SaveChanges();
+            }
+
+            using (var context = new PlaceMyBetContext())
+            {
+                var mercado = context.Mercados
+                    .Single(m => m.MercadoId == a.MercadoId);
+                //double dino = Double.Parse(mercado.DineroApostadoOver);
+            }
+
+            using (var context = new PlaceMyBetContext())
+            {
+                var mercado = context.Mercados.First();
+                mercado.DineroApostadoOver = a.DineroApostado;
+                context.SaveChanges();
+            }
         }
 
         internal void RetrieveDTOEVME(string email)
