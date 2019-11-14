@@ -47,8 +47,15 @@ namespace PlaceMyBet.Controllers
         }
 
         // POST: api/Mercados
-        public void Post([FromBody]string value)
+        public void Post(Mercado m)
         {
+            using (var context = new PlaceMyBetContext())
+            {
+                var mercados = context.Set<Mercado>();
+                mercados.Add(m);
+                context.SaveChanges();
+            }
+
         }
 
         // PUT: api/Mercados/5

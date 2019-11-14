@@ -108,5 +108,16 @@ namespace PlaceMyBet.Models
                 //return null;
             }
         }
+
+        internal void Save(Mercado m)
+        {
+            using (var context = new PlaceMyBetContext())
+            {
+                var mercados = context.Set<Mercado>();
+                mercados.Add(new Mercado(m.MercadoId, m.DineroApostadoUnder, m.DineroApostadoOver, m.CuotaUnder, m.CuotaOver, m.Tipo, m.EventoId));
+                context.SaveChanges();
+            }
+
+        }
     }
 }
