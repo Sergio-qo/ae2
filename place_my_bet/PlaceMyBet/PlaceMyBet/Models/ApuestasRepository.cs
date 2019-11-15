@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Globalization;
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace PlaceMyBet.Models
 {
@@ -19,7 +21,7 @@ namespace PlaceMyBet.Models
         {
             using (var context = new PlaceMyBetContext())
             {
-                var apuestas = context.Apuestas.ToList();
+                List<Apuesta> apuestas = context.Apuestas.Include(a => a.Mercado).ToList();
                 return apuestas;
             }
         }

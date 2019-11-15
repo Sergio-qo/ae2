@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
 
 namespace PlaceMyBet.Models
@@ -12,7 +13,8 @@ namespace PlaceMyBet.Models
         {
             using (var context = new PlaceMyBetContext())
             {
-                var mercados = context.Mercados.ToList();
+                //var mercados = context.Mercados.ToList();
+                List<Mercado> mercados = context.Mercados.Include(p => p.Evento).ToList();
                 return mercados;
             }
         }
@@ -103,7 +105,7 @@ namespace PlaceMyBet.Models
             using (var context = new PlaceMyBetContext())
             {
                 var mercados = context.Set<Mercado>();
-                mercados.Add(new Mercado(m.MercadoId, m.DineroApostadoUnder, m.DineroApostadoOver, m.CuotaUnder, m.CuotaOver, m.Tipo, m.EventoId));
+                mercados.Add(m);
                 context.SaveChanges();
             }
 
