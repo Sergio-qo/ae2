@@ -72,91 +72,92 @@ namespace PlaceMyBet.Models
 
             System.Threading.Thread.CurrentThread.CurrentCulture = cullInfo;
 
-            /*MySqlConnection con = Connect();
-            MySqlCommand command = con.CreateCommand();
-            command.CommandText = "insert into apuesta values(" + a.Id + "," + "'" + a.Tipo + "'" + "," + a.Cuota + "," + a.DineroApostado+","+a.IdMercado+"," + "'" + a.EmailUsuario + "'" + ");";
-            */
-            try
-            {
-                /*con.Open();
-                command.ExecuteNonQuery();*/
-                
-            }
-            catch (/*MySqlException e*/ InvalidCastException e)
-            {
-                Console.WriteLine("Error " + e);
-            }
-            //con.Close();
-            if (a.Tipo.ToUpper() == "OVER")
-            {
-                //command.CommandText = "UPDATE mercado SET dinero_apostado_over = dinero_apostado_over + " + a.DineroApostado + " WHERE id=" + a.IdMercado+";";
-            }
-            if (a.Tipo.ToUpper() == "UNDER")
-            {
-                //command.CommandText = "UPDATE mercado SET dinero_apostado_under = dinero_apostado_under + " + a.DineroApostado + " WHERE id=" + a.IdMercado + ";";
-            }
-            try
-            {
-                /*con.Open();
-                command.ExecuteNonQuery();*/
-                
-            }
-            catch (/*MySqlException e*/ InvalidCastException e)
-            {
-                Console.WriteLine("Error " + e);
-            }
-            /*con.Close();
-            con.Open();
-            command.CommandText = "select dinero_apostado_over from mercado where id="+ a.IdMercado+"; ";
-            MySqlDataReader reader = command.ExecuteReader();
-            reader.Read();*/
+            ///*MySqlConnection con = Connect();
+            //MySqlCommand command = con.CreateCommand();
+            //command.CommandText = "insert into apuesta values(" + a.Id + "," + "'" + a.Tipo + "'" + "," + a.Cuota + "," + a.DineroApostado+","+a.IdMercado+"," + "'" + a.EmailUsuario + "'" + ");";
+            //*/
+            //try
+            //{
+            //    /*con.Open();
+            //    command.ExecuteNonQuery();*/
+
+            //}
+            //catch (/*MySqlException e*/ InvalidCastException e)
+            //{
+            //    Console.WriteLine("Error " + e);
+            //}
+            ////con.Close();
+            //if (a.Tipo.ToUpper() == "OVER")
+            //{
+            //    //command.CommandText = "UPDATE mercado SET dinero_apostado_over = dinero_apostado_over + " + a.DineroApostado + " WHERE id=" + a.IdMercado+";";
+            //}
+            //if (a.Tipo.ToUpper() == "UNDER")
+            //{
+            //    //command.CommandText = "UPDATE mercado SET dinero_apostado_under = dinero_apostado_under + " + a.DineroApostado + " WHERE id=" + a.IdMercado + ";";
+            //}
+            //try
+            //{
+            //    /*con.Open();
+            //    command.ExecuteNonQuery();*/
+
+            //}
+            //catch (/*MySqlException e*/ InvalidCastException e)
+            //{
+            //    Console.WriteLine("Error " + e);
+            //}
+            ///*con.Close();
+            //con.Open();
+            //command.CommandText = "select dinero_apostado_over from mercado where id="+ a.IdMercado+"; ";
+            //MySqlDataReader reader = command.ExecuteReader();
+            //reader.Read();*/
+            //double dino;
+            ///*double dino = reader.GetDouble(0);
+            //reader.Close();
+            //con.Close();*/
+
+            ///*con.Open();
+            //command.CommandText = "select dinero_apostado_under from mercado where id=" + a.IdMercado + "; ";
+            //reader = command.ExecuteReader();
+            //reader.Read();*/
+            //double dinu;
+            ///*double dinu = reader.GetDouble(0);
+            //reader.Close();
+            //con.Close();*/
+            //double po = 0;
+            //double pu = 0;
+            ///*double po = dino / (dino + dinu);
+            //double pu = dinu / (dinu + dino);*/
+
+            //double co = Convert.ToDouble((1 / po) * 0.95);
+            //double cu = Convert.ToDouble((1 / pu) * 0.95);
+
+            ////command.CommandText = "update mercado set cuota_over = '" + co + "' where id =" + a.IdMercado + ";";
+            //try
+            //{
+            //    /*con.Open();
+            //    command.ExecuteNonQuery();*/
+
+            //}
+            //catch (/*MySqlException e*/ InvalidCastException e)
+            //{
+            //    Console.WriteLine("Error " + e);
+            //}
+            ////con.Close();
+
+            ////command.CommandText = "update mercado set cuota_under = '"+cu+"' where id ="+ a.IdMercado +"; ";
+            //try
+            //{
+            //    /*con.Open();
+            //    command.ExecuteNonQuery();*/
+
+            //}
+            //catch (/*MySqlException e*/ InvalidCastException e)
+            //{
+            //    Console.WriteLine("Error " + e);
+            //}
+            ////con.Close();
             double dino;
-            /*double dino = reader.GetDouble(0);
-            reader.Close();
-            con.Close();*/
-
-            /*con.Open();
-            command.CommandText = "select dinero_apostado_under from mercado where id=" + a.IdMercado + "; ";
-            reader = command.ExecuteReader();
-            reader.Read();*/
             double dinu;
-            /*double dinu = reader.GetDouble(0);
-            reader.Close();
-            con.Close();*/
-            double po = 0;
-            double pu = 0;
-            /*double po = dino / (dino + dinu);
-            double pu = dinu / (dinu + dino);*/
-
-            double co = Convert.ToDouble((1 / po) * 0.95);
-            double cu = Convert.ToDouble((1 / pu) * 0.95);
-
-            //command.CommandText = "update mercado set cuota_over = '" + co + "' where id =" + a.IdMercado + ";";
-            try
-            {
-                /*con.Open();
-                command.ExecuteNonQuery();*/
-                
-            }
-            catch (/*MySqlException e*/ InvalidCastException e)
-            {
-                Console.WriteLine("Error " + e);
-            }
-            //con.Close();
-
-            //command.CommandText = "update mercado set cuota_under = '"+cu+"' where id ="+ a.IdMercado +"; ";
-            try
-            {
-                /*con.Open();
-                command.ExecuteNonQuery();*/
-
-            }
-            catch (/*MySqlException e*/ InvalidCastException e)
-            {
-                Console.WriteLine("Error " + e);
-            }
-            //con.Close();
-
 
             using (var context = new PlaceMyBetContext())
             {
@@ -167,17 +168,34 @@ namespace PlaceMyBet.Models
 
             using (var context = new PlaceMyBetContext())
             {
-                var mercado = context.Mercados
-                    .Single(m => m.MercadoId == a.MercadoId);
-                //double dino = Double.Parse(mercado.DineroApostadoOver);
-            }
+                Mercado mercado = context.Mercados
+                    .FirstOrDefault(m => m.MercadoId == a.MercadoId);
+                dino = mercado.DineroApostadoOver;
+                dinu = mercado.DineroApostadoUnder;
 
-            using (var context = new PlaceMyBetContext())
-            {
-                var mercado = context.Mercados.First();
-                mercado.DineroApostadoOver = a.DineroApostado;
+                double po = dino / (dino + dinu);
+                double pu = dinu / (dinu + dino);
+                double co = Convert.ToDouble((1 / po) * 0.95);
+                double cu = Convert.ToDouble((1 / pu) * 0.95);
+
+                mercado.CuotaOver = co;
+                mercado.CuotaUnder = cu;
+
+                if (a.Tipo.ToUpper() == "OVER")
+                {
+                    mercado.DineroApostadoOver = dino + a.DineroApostado;
+                }
+                if (a.Tipo.ToUpper() == "UNDER")
+                {
+                    mercado.DineroApostadoOver = dinu + a.DineroApostado;
+                }
+
                 context.SaveChanges();
             }
+
+            
+
+          
         }
 
         internal void RetrieveDTOEVME(string email)
