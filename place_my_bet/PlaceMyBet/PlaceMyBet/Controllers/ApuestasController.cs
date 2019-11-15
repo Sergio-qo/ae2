@@ -18,6 +18,15 @@ namespace PlaceMyBet.Controllers
             return apuestas;
         }
 
+        // GET: api/ApuestasDTO
+        [Route("api/ApuestasDTO")]
+        public List<ApuestaDTO> GetDTO()
+        {
+            var repo = new ApuestasRepository();
+            List<ApuestaDTO> apuestas = repo.RetrieveDTO();
+            return apuestas;
+        }
+
         // GET: api/Apuestas/5
         [Route("api/Apuestas/{id_apuesta}")]
         public Apuesta Get(int id_apuesta)

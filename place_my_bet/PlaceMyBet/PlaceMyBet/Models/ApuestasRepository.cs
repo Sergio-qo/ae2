@@ -36,27 +36,47 @@ namespace PlaceMyBet.Models
             }
         }
 
-        internal void RetrieveDTO()
+
+        public ApuestaDTO ToDTO(Apuesta a)
         {
-            /*MySqlConnection con = Connect();
-            MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from apuesta";*/
-            try
+            int eventoid;
+            using (var context = new PlaceMyBetContext())
             {
-                /*con.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-                List<ApuestaDTO> apuestas = new List<ApuestaDTO>();
-                while (reader.Read())
-                {
-                    apuestas.Add(new ApuestaDTO(reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5)));
-                }
-                con.Close();*/
-                //return null;
+                eventoid = context.Mercados.FirstOrDefault(m => m.MercadoId == a.MercadoId).EventoId;
             }
-            catch (/*MySqlException ex*/ InvalidCastException e)
+
+
+            return new ApuestaDTO(a.UsuarioId, eventoid, a.Tipo, a.Cuota, a.DineroApostado);
+        }
+        internal List<ApuestaDTO> RetrieveDTO()
+        {
+            ///*MySqlConnection con = Connect();
+            //MySqlCommand command = con.CreateCommand();
+            //command.CommandText = "select * from apuesta";*/
+            //try
+            //{
+            //    /*con.Open();
+            //    MySqlDataReader reader = command.ExecuteReader();
+            //    List<ApuestaDTO> apuestas = new List<ApuestaDTO>();
+            //    while (reader.Read())
+            //    {
+            //        apuestas.Add(new ApuestaDTO(reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5)));
+            //    }
+            //    con.Close();*/
+            //    //return null;
+            //}
+            //catch (/*MySqlException ex*/ InvalidCastException e)
+            //{
+            //    Console.WriteLine("Se ha producido un error: " + e);
+            //    //return null;
+            //}
+
+            
+
+            using (var context = new PlaceMyBetContext())
             {
-                Console.WriteLine("Se ha producido un error: " + e);
-                //return null;
+                List<ApuestaDTO> apuestas = context.Apuestas.Select(a => ToDTO(a)).ToList();
+                return apuestas;
             }
         }
 
