@@ -41,5 +41,16 @@ namespace PlaceMyBet.Models
                 //return null;
             }
         }
+
+        internal void Update(int id, string equipol, string equipov)
+        {
+            using (var context = new PlaceMyBetContext())
+            {
+                Evento evento = context.Eventos.FirstOrDefault(e => e.EventoId == id);
+                evento.EquipoL = equipol;
+                evento.EquipoV = equipov;
+                context.SaveChanges();
+            }
+        }
     }
 }

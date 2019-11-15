@@ -220,6 +220,9 @@ namespace PlaceMyBet.Models
           
         }
 
+        
+        
+
         internal void RetrieveDTOEVME(string email)
         {
             /*MySqlConnection con = Connect();
