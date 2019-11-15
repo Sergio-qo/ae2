@@ -8,33 +8,22 @@ namespace PlaceMyBet.Models
 {
     public class MercadosRepository
     {
-        /*private MySqlConnection Connect()
-        {
-            string connString = "Server=localhost;Port=3306;Database=mydb;Uid=root;password=;SslMode=none";
-            MySqlConnection con = new MySqlConnection(connString);
-            return con;
-        }*/
         internal List<Mercado> Retrieve()
         {
-            /*MySqlConnection con = Connect();
-            MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from mercado";*/
-            try
+            using (var context = new PlaceMyBetContext())
             {
-                /*con.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-                List<Mercado> mercados = new List<Mercado>();
-                while (reader.Read())
-                {
-                    mercados.Add(new Mercado(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), reader.GetDouble(3), reader.GetDouble(4), reader.GetString(5), reader.GetInt32(6)));
-                }
-                con.Close();*/
-                return null;
+                var mercados = context.Mercados.ToList();
+                return mercados;
             }
-            catch (/*MySqlException ex*/InvalidCastException e)
+        }
+
+        internal Mercado RetrieveById(int id_mercado)
+        {
+            using (var context = new PlaceMyBetContext())
             {
-                Console.WriteLine("Se ha producido un error: " + e);
-                return null;
+                var mercado = context.Mercados
+                    .FirstOrDefault(m => m.MercadoId == id_mercado);
+                return mercado;
             }
         }
 
