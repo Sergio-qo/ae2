@@ -8,33 +8,13 @@ namespace PlaceMyBet.Models
 {
     public class EventosRepository
     {
-        /*private MySqlConnection Connect()
-        {
-            string connString = "Server=localhost;Port=3306;Database=mydb;Uid=root;password=;SslMode=none";
-            MySqlConnection con = new MySqlConnection(connString);
-            return con;
-        }*/
+        
         internal List<Evento> Retrieve()
         {
-            /*MySqlConnection con = Connect();
-            MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from partido";*/
-            try
+            using (var context = new PlaceMyBetContext())
             {
-                /*con.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-                List<Evento> eventos = new List<Evento>();
-                while (reader.Read())
-                {
-                    eventos.Add(new Evento(reader.GetInt32(0), reader.GetString(1), reader.GetString(2)));
-                }
-                con.Close();*/
-                return null;
-            }
-            catch (/*MySqlException ex*/ InvalidCastException e)
-            {
-                Console.WriteLine("Se ha producido un error: " + e);
-                return null;
+                var eventos = context.Eventos.ToList();
+                return eventos;
             }
         }
 

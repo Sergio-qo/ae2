@@ -13,14 +13,9 @@ namespace PlaceMyBet.Controllers
         // GET: api/Eventos
         public List<Evento> Get()
         {
-            //var repo = new EventosRepository();
-            //List<EventoDTO> eventos = repo.RetrieveDTO();
-            //return eventos;
-            using (var context = new PlaceMyBetContext())
-            {
-                var eventos = context.Eventos.ToList();
-                return eventos;
-            }
+            var repo = new EventosRepository();
+            List<Evento> eventos = repo.Retrieve();
+            return eventos;
         }
 
         // GET: api/Eventos/5
