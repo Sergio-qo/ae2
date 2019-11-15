@@ -19,6 +19,15 @@ namespace PlaceMyBet.Models
             }
         }
 
+        internal List<MercadoDTO> RetrieveDTO()
+        {
+            using (var context = new PlaceMyBetContext())
+            {
+                List<MercadoDTO> mercados = context.Mercados.Select(m => ToDTO(m)).ToList();
+                return mercados;
+            }
+        }
+
         internal Mercado RetrieveById(int id_mercado)
         {
             using (var context = new PlaceMyBetContext())
@@ -29,29 +38,34 @@ namespace PlaceMyBet.Models
             }
         }
 
-        internal void RetrieveDTO()
+        public MercadoDTO ToDTO(Mercado m)
         {
-            /*MySqlConnection con = Connect();
-            MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from mercado";*/
-            try
-            {
-                /*con.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-                List<MercadoDTO> mercados = new List<MercadoDTO>();
-                while (reader.Read())
-                {
-                    mercados.Add(new MercadoDTO(reader.GetDouble(3), reader.GetDouble(4), reader.GetString(5), reader.GetInt32(6)));
-                }
-                con.Close();*/
-                //return null;
-            }
-            catch (/*MySqlException ex*/ InvalidCastException e)
-            {
-                Console.WriteLine("Se ha producido un error: " + e);
-                //return null;
-            }
+            return new MercadoDTO(m.CuotaUnder, m.CuotaOver, m.Tipo);
         }
+
+        //internal void RetrieveDTO()
+        //{
+        //    /*MySqlConnection con = Connect();
+        //    MySqlCommand command = con.CreateCommand();
+        //    command.CommandText = "select * from mercado";*/
+        //    try
+        //    {
+        //        /*con.Open();
+        //        MySqlDataReader reader = command.ExecuteReader();
+        //        List<MercadoDTO> mercados = new List<MercadoDTO>();
+        //        while (reader.Read())
+        //        {
+        //            mercados.Add(new MercadoDTO(reader.GetDouble(3), reader.GetDouble(4), reader.GetString(5), reader.GetInt32(6)));
+        //        }
+        //        con.Close();*/
+        //        //return null;
+        //    }
+        //    catch (/*MySqlException ex*/ InvalidCastException e)
+        //    {
+        //        Console.WriteLine("Se ha producido un error: " + e);
+        //        //return null;
+        //    }
+        //}
 
         internal List<Mercado> RetrieveByEventoId(int id_evento)
         {
