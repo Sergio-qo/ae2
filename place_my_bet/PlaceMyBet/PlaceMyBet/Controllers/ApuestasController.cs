@@ -13,28 +13,18 @@ namespace PlaceMyBet.Controllers
         // GET: api/Apuestas
         public List<Apuesta> Get()
         {
-            //var repo = new ApuestasRepository();
-            //List<ApuestaDTO> apuestas = repo.RetrieveDTO();
-            //return apuestas;
-            using (var context = new PlaceMyBetContext())
-            {
-                var apuestas = context.Apuestas.ToList();
-                return apuestas;
-            }
+            var repo = new ApuestasRepository();
+            List<Apuesta> apuestas = repo.Retrieve();
+            return apuestas;
         }
 
         // GET: api/Apuestas/5
         [Route("api/Apuestas/{id_apuesta}")]
-        public void Get(int id_apuesta)
+        public Apuesta Get(int id_apuesta)
         {
-            //var repo = new ApuestasRepository();
-            //List<ApuestaDTOEVME> apuestas = repo.RetrieveDTOEVME(email);
-            //return apuestas;
-            using (var context = new PlaceMyBetContext())
-            {
-                var apuesta = context.Apuestas
-                    .FirstOrDefault(a => a.ApuestaId == id_apuesta);
-            }
+            var repo = new ApuestasRepository();
+            Apuesta apuesta = repo.RetrieveById(id_apuesta);
+            return apuesta;
         }
 
         // POST: api/Apuestas

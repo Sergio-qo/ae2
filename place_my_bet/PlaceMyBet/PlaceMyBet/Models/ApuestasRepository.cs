@@ -24,6 +24,16 @@ namespace PlaceMyBet.Models
             }
         }
 
+        internal Apuesta RetrieveById(int id_apuesta)
+        {
+            using (var context = new PlaceMyBetContext())
+            {
+                var apuesta = context.Apuestas
+                    .FirstOrDefault(a => a.ApuestaId == id_apuesta);
+                return apuesta;
+            }
+        }
+
         internal void RetrieveDTO()
         {
             /*MySqlConnection con = Connect();
