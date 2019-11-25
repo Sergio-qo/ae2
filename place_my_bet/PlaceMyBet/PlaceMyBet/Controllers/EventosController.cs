@@ -36,7 +36,7 @@ namespace PlaceMyBet.Controllers
         }
 
         // PUT: api/Eventos/5
-        public void Put(int id)
+        public void Put(int id, string equipol, string equipov)
         {
             var repo = new EventosRepository();
             repo.Update(id, equipol, equipov);
