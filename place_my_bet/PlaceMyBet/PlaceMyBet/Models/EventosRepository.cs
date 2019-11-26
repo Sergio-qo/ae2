@@ -42,6 +42,15 @@ namespace PlaceMyBet.Models
             }
         }
 
+        internal void Delete(int id)
+        {
+            using (var context = new PlaceMyBetContext())
+            {
+                context.Eventos.Remove(context.Eventos.FirstOrDefault(e => e.EventoId == id));
+                context.SaveChanges();
+            }
+        }
+
         internal void Update(int id, string equipol, string equipov)
         {
             using (var context = new PlaceMyBetContext())
