@@ -46,7 +46,7 @@ namespace PlaceMyBet.Models
             }
 
 
-            return new ApuestaDTO(a.UsuarioId, eventoid, a.Tipo, a.Cuota, a.DineroApostado);
+            return new ApuestaDTO(a.UsuarioId, eventoid, a.Tipo, a.Cuota, a.DineroApostado, a.Mercado);
         }
         internal List<ApuestaDTO> RetrieveDTO()
         {
@@ -75,7 +75,7 @@ namespace PlaceMyBet.Models
 
             using (var context = new PlaceMyBetContext())
             {
-                List<ApuestaDTO> apuestas = context.Apuestas.Select(a => ToDTO(a)).ToList();
+                List<ApuestaDTO> apuestas = context.Apuestas.Include(a => a.Mercado).Select(a => ToDTO(a)).ToList();
                 return apuestas;
             }
         }
