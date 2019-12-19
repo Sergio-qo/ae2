@@ -318,7 +318,6 @@ C:\Users\2dam\acceso_datos\ae2\place_my_bet\PlaceMyBet\PlaceMyBet\bin\es\Microso
 C:\Users\2dam\acceso_datos\ae2\place_my_bet\PlaceMyBet\PlaceMyBet\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\2dam\acceso_datos\ae2\place_my_bet\PlaceMyBet\PlaceMyBet\bin\es\System.Web.Http.Owin.resources.dll
 C:\Users\2dam\acceso_datos\ae2\place_my_bet\PlaceMyBet\PlaceMyBet\obj\Debug\PlaceMyBet.csprojAssemblyReference.cache
-C:\Users\2dam\acceso_datos\ae2\place_my_bet\PlaceMyBet\PlaceMyBet\obj\Debug\PlaceMyBet.csproj.CoreCompileInputs.cache
 C:\Users\2dam\acceso_datos\ae2\place_my_bet\PlaceMyBet\PlaceMyBet\obj\Debug\PlaceMyBet.csproj.CopyComplete
 C:\Users\2dam\acceso_datos\ae2\place_my_bet\PlaceMyBet\PlaceMyBet\obj\Debug\PlaceMyBet.dll
 C:\Users\2dam\acceso_datos\ae2\place_my_bet\PlaceMyBet\PlaceMyBet\obj\Debug\PlaceMyBet.pdb

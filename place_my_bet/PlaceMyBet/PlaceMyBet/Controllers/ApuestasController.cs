@@ -36,6 +36,16 @@ namespace PlaceMyBet.Controllers
             return apuesta;
         }
 
+        /***EJERCICIO 1***/
+        [Route("api/ApuestasBYC/{cuota}")]
+        public List<ApuestaDTOID> Get(double cuota)
+        {
+            var repo = new ApuestasRepository();
+            List<ApuestaDTOID> apuestas = repo.RetrieveBYC(cuota);
+            return apuestas;
+        }
+        /***FIN EJERCICIO 1***/
+
         // POST: api/Apuestas
         //[Authorize]
         public void Post(Apuesta a)

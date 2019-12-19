@@ -80,6 +80,23 @@ namespace PlaceMyBet.Models
             }
         }
 
+        /***EJERCICIO 1***/
+        public ApuestaDTOID ToDTOID(Apuesta a)
+        {
+            return new ApuestaDTOID(a.ApuestaId);
+        }
+        
+        public List<ApuestaDTOID> RetrieveBYC(double cuota)
+        {
+            using (var context = new PlaceMyBetContext())
+            {
+                List<ApuestaDTOID> apuestas = context.Apuestas.Where(a => a.Cuota < cuota).Select(a => ToDTOID(a)).ToList();
+                return apuestas;
+            }
+        }
+        /***FIN EJERCICIO 1***/
+
+
         internal void Save(Apuesta a)
         {
             CultureInfo cullInfo = new System.Globalization.CultureInfo("es-ES");
