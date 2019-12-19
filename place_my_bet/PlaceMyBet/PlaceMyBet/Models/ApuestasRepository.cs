@@ -97,6 +97,28 @@ namespace PlaceMyBet.Models
         /***FIN EJERCICIO 1***/
 
 
+        /***EJERCICIO 2***/
+        public List<Apuesta> RetrieveBYE(string equipo)
+        {
+            using (var context = new PlaceMyBetContext())
+            {
+                int eventoid = context.Eventos.FirstOrDefault(e => e.EquipoL == equipo || e.EquipoV == equipo).EventoId;
+                List<Mercado> mercados = context.Mercados.Where(m => m.EventoId == eventoid).ToList();
+                List<Apuesta> apuestas = null;
+                foreach (Mercado mercado in mercados)
+                {
+                    List<Apuesta> subapuestas = context.Apuestas.Where(a => a.MercadoId == mercado.MercadoId).ToList();
+                    foreach (Apuesta subapuesta in subapuestas)
+                    {
+                        apuestas.Add(subapuesta);
+                    }
+                }
+                return apuestas;
+            }
+        }
+        /***FIN EJERCICIO 2***/
+
+
         internal void Save(Apuesta a)
         {
             CultureInfo cullInfo = new System.Globalization.CultureInfo("es-ES");

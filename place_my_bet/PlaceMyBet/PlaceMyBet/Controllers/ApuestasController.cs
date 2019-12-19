@@ -46,6 +46,17 @@ namespace PlaceMyBet.Controllers
         }
         /***FIN EJERCICIO 1***/
 
+
+        /***EJERCICIO 2***/
+        [Route("api/ApuestasBYE/{equipo}")]
+        public List<Apuesta> Get(string equipo)
+        {
+            var repo = new ApuestasRepository();
+            List<Apuesta> apuestas = repo.RetrieveBYE(equipo);
+            return apuestas;
+        }
+        /***FIN EJERCICIO 2***/
+
         // POST: api/Apuestas
         //[Authorize]
         public void Post(Apuesta a)
